@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
 group POM_ARTIFACT_GROUP
@@ -85,6 +84,20 @@ publishing {
                     dependencyNode.appendNode('artifactId', dep.name)
                     dependencyNode.appendNode('version', dep.version)
                     dependencyNode.appendNode('scope', "runtime")
+                }
+            }
+        }
+
+        publishing {
+            publications {
+                release(MavenPublication) {
+                    groupId = 'com.github.Smarp'
+                    artifactId = 'anko'
+                    version = '0.10.9'
+
+                    afterEvaluate {
+                        from components.release
+                    }
                 }
             }
         }
