@@ -93,7 +93,7 @@ publishing {
                 release(MavenPublication) {
                     groupId = 'com.github.Smarp'
                     artifactId = 'anko'
-                    version = '0.10.9'
+                    version = '0.10.10'
 
                     afterEvaluate {
                         from components.release
